@@ -14,8 +14,48 @@ It is an international project with collaborators in Brazil, China, United Kingd
 
 The BINGO project uses the skarab to process the data read by the antenna before sending it to the server for further processing and database saving. 
 
+# Install toolflow
+
+## *casperfpga* from pip (for ubuntu >=20.04)
+
+Get the installed python version on your computer:
+
+    python3 --version
+
+And follow the install guide to download miniconda accordingly to your python version from the [link](https://docs.conda.io/en/latest/miniconda.html)
+
+After the installation has ended, create a python 2.7 environment with:
+
+    conda create -n cfpga_venv python=2.7
+
+If you don't what the conda initiating the environment in every new terminal window, use this config:
+
+    conda config --set auto_activate_base false
+
+Activate the python 2.7 environment
+
+    conda activate cfpga_venv
+
+Install the casperfpga python package and the ipython for testing
+
+    pip install casperfpga ipython
+
+Turn on the Skarab and test with
+
+```python
+import casperfpga
+
+skarab = caspfpga.CasperFpga('xxx.xxx.xxx.xxx')
+
+skarab.upload_to_ran_and_program('file_path.fpg')
+```
+
 # Reference
 
 * [Casper toolflow docs](https://casper-toolflow.readthedocs.io/en/latest/index.html)
 * [Casper toolflow repo](https://github.com/casper-astro/mlib_devel)
+* [Casper hardware list](https://github.com/casper-astro/casper-hardware)
 * [casperfpga github](https://github.com/ska-sa/casperfpga)
+* [SKARAB BSP images](https://github.com/ska-sa/skarab_bsp_images)
+* [SKARAB microprocessor](https://github.com/ska-sa/skarab_microblaze_software)
+* [SKARAB LED manager](/SKARAB_LED_Manager.pdf)
